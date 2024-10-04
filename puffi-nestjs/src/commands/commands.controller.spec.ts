@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CommandsController } from './commands.controller';
+import { CommandsController } from './controllers/productivity-commands.controller';
 
 describe('CommandsController', () => {
   let controller: CommandsController;

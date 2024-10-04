@@ -5,7 +5,7 @@ import { LifestatModule } from './lifestat/lifestat.module';
 import { AuthModule } from './auth/auth.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { CommandsModule } from './commands/commands.module';
-import { CommandsController } from './commands/commands.controller';
+import { CommandsController } from './commands/controllers/productivity-commands.controller';
 
 @Module({
   imports: [

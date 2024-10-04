@@ -9,6 +9,9 @@ import { ProductivityEvaluation } from './data models/productivityEvaluation.dat
 export class LlmService {
   constructor() {}
 
+  // This function takes the latest productivity entries and sends them to Together AI to get an evaluation.
+  //This returns the data in the form of the zod schema 'productivityOutputSchema'.
+
   async getLLMEvaluation(latestProductivities: Productivity[]): Promise<any> {
     const together = new Together();
     const systemContent = 'system';
@@ -40,6 +43,7 @@ export class LlmService {
     return output;
   }
 
+  // This function takes the output from the getLLMEvaluation function and adds it to the database.
   async addLLMEvaluation(em: EntityManager, output: string): Promise<void> {
     const parsedOutput = JSON.parse(output);
 

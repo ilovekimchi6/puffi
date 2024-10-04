@@ -3,6 +3,8 @@ import { Productivity } from './data models/productivity.dataModel';
 import { ProductivityDTO } from 'src/commands/dtos/productivity.dto';
 
 export class ProductivityRepository extends EntityRepository<Productivity> {
+  // This adds a new productivity to the database.
+
   async addProductivity(
     productivityDTO: ProductivityDTO,
     em?: EntityManager,
@@ -31,6 +33,8 @@ export class ProductivityRepository extends EntityRepository<Productivity> {
     }
   }
 
+  // This gets the latest productivity entries from the database
+
   async getLatestProductivities(
     limit: number = 4,
     em?: EntityManager,
@@ -47,6 +51,7 @@ export class ProductivityRepository extends EntityRepository<Productivity> {
     }
   }
 
+  // This gets a productivity entry by its id
   async getProductivityById(
     id: number,
     em?: EntityManager,

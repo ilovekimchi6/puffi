@@ -5,7 +5,7 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { LLMEvaluation } from 'src/llm/data models/llm.dataModel';
+import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.dataModel';
 import { User } from 'src/user/data models/user.dataModel';
 
 @Entity()
@@ -16,8 +16,8 @@ export class Productivity {
   @ManyToOne(() => User)
   user: User;
 
-  @OneToOne(() => LLMEvaluation)
-  llmEvaluation: LLMEvaluation;
+  @OneToOne(() => ProductivityEvaluation)
+  productivityEvaluation: ProductivityEvaluation;
 
   @Property()
   majorGoalsToAccomplish: string;

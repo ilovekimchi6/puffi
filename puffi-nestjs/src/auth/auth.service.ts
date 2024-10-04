@@ -10,6 +10,8 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  //This is the function that actually validates the user be returning the user object or null.
+
   async validateUser(authDto: AuthDTO): Promise<any> {
     const user = await this.userService.findUserByEmail(authDto.email);
     if (user && (await user.verifyPassword(authDto.password))) {
@@ -19,6 +21,8 @@ export class AuthService {
     }
     return null;
   }
+
+  //This is the function that logs in the user and returns the access token and the user object.
 
   async login(user: any) {
     const payload = { email: user.email, sub: user.userId };
