@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Productivity } from 'src/lifestat/productivity/data models/productivity.dataModel';
 import Together from 'together-ai';
-import { ProductivityJsonSchema } from './zod/productivityEvaluation.schema';
 import { EntityManager, QueryOrder } from '@mikro-orm/postgresql';
 import { ProductivityEvaluation } from './data models/productivityEvaluation.dataModel';
 
@@ -12,12 +10,13 @@ export class LlmService {
   // This function takes the latest productivity entries and sends them to Together AI to get an evaluation.
   //This returns the data in the form of the zod schema 'productivityOutputSchema'.
 
-  async lLMEvaluation(latestProductivities: Productivity[]): Promise<any> {
+  // async lLMEvaluation<T>(latestEntries: T[], schema: any): Promise<any>
+
+  async lLMEvaluation<T>(latestEvaluation: T[], schema: any): Promise<any> {
     const together = new Together();
     const systemContent = 'system';
-    const prompt = `You have added a new productivity entry. Here are your latest productivity entries: ${latestProductivities}`;
+    const prompt = `You have added a new productivity entry. Here are your latest productivity entries: ${latestEvaluation}`;
     let output = '';
-
     const extract = await together.chat.completions.create({
       messages: [
         {
@@ -33,7 +32,7 @@ export class LlmService {
 
       response_format: {
         type: 'json_object',
-        schema: ProductivityJsonSchema as any,
+        schema: schema,
       },
     });
     if (extract?.choices?.[0]?.message?.content) {
