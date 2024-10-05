@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CommandsController } from './controllers/productivity-commands.controller';
+import { ProductivityCommandsController } from './controllers/productivity-commands.controller';
 
 describe('CommandsController', () => {
-  let controller: CommandsController;
+  let controller: ProductivityCommandsController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [CommandsController],
+      controllers: [ProductivityCommandsController],
     }).compile();
 
-    controller = module.get<CommandsController>(CommandsController);
+    controller = module.get<ProductivityCommandsController>(ProductivityCommandsController);
   });
 
   it('should be defined', () => {

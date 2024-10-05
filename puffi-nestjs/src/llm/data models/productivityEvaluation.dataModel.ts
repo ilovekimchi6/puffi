@@ -35,4 +35,7 @@ export class ProductivityEvaluation {
 
   @Property()
   actionableAdvice: string;
+
+  @Property()
+  createdAt = new Date();
 }

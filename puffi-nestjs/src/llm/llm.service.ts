@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Productivity } from 'src/lifestat/productivity/data models/productivity.dataModel';
 import Together from 'together-ai';
 import { ProductivityJsonSchema } from './zod/productivityEvaluation.schema';
-import { EntityManager } from '@mikro-orm/postgresql';
+import { EntityManager, QueryOrder } from '@mikro-orm/postgresql';
 import { ProductivityEvaluation } from './data models/productivityEvaluation.dataModel';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class LlmService {
   // This function takes the latest productivity entries and sends them to Together AI to get an evaluation.
   //This returns the data in the form of the zod schema 'productivityOutputSchema'.
 
-  async getLLMEvaluation(latestProductivities: Productivity[]): Promise<any> {
+  async lLMEvaluation(latestProductivities: Productivity[]): Promise<any> {
     const together = new Together();
     const systemContent = 'system';
     const prompt = `You have added a new productivity entry. Here are your latest productivity entries: ${latestProductivities}`;
@@ -70,5 +70,20 @@ export class LlmService {
       keyInsight,
       actionableAdvice,
     });
+  }
+
+  async getLLMEvaluation<T extends { id: any }>(
+    em: EntityManager,
+    entityType: new () => T,
+  ): Promise<T | null> {
+    const latestEvaluation = await em.findOne(
+      entityType,
+      {},
+      {
+        orderBy: { id: QueryOrder.DESC },
+      },
+    );
+
+    return latestEvaluation;
   }
 }

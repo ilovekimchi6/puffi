@@ -5,7 +5,6 @@ import { LifestatModule } from './lifestat/lifestat.module';
 import { AuthModule } from './auth/auth.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { CommandsModule } from './commands/commands.module';
-import { CommandsController } from './commands/controllers/productivity-commands.controller';
 
 @Module({
   imports: [
@@ -16,6 +15,5 @@ import { CommandsController } from './commands/controllers/productivity-commands
     EventEmitterModule.forRoot(),
     CommandsModule,
   ],
-  controllers: [CommandsController],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { ProductivityService } from 'src/lifestat/productivity/productivity.serv
 import { ProductivityDTO } from '../dtos/productivity.dto';
 import { LlmService } from 'src/llm/llm.service';
 import { EntityManager } from '@mikro-orm/postgresql';
+import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.dataModel';
 
 // A command is basically a service that calls a lot of methods from other services.
 //They all are executed in a transactional way, so if one fails, the other will not be added.
@@ -32,7 +33,7 @@ export class ProductivityCommandsService {
       // Get the LLM evaluation
 
       const getLLMEvaluation =
-        await this.llmService.getLLMEvaluation(latestProductivities);
+        await this.llmService.lLMEvaluation(latestProductivities);
 
       // Add the productivity and LLM evaluation to the database
       // If one fails, the other will not be added.
@@ -50,5 +51,13 @@ export class ProductivityCommandsService {
     }
   }
 
-  async getLLMPredictionCommand(): Promise<any> {}
+  //This command has the job of returning back the latest productivity e
+
+  async getLLMPredictionCommand(): Promise<ProductivityEvaluation | null> {
+    const latestEvaluation = await this.llmService.getLLMEvaluation(
+      this.em,
+      ProductivityEvaluation,
+    );
+    return latestEvaluation;
+  }
 }
