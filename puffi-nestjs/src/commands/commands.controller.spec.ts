@@ -9,7 +9,9 @@ describe('CommandsController', () => {
       controllers: [ProductivityCommandsController],
     }).compile();
 
-    controller = module.get<ProductivityCommandsController>(ProductivityCommandsController);
+    controller = module.get<ProductivityCommandsController>(
+      ProductivityCommandsController,
+    );
   });
 
   it('should be defined', () => {
