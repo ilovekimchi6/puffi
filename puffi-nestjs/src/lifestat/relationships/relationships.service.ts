@@ -3,12 +3,12 @@ import { EntityManager } from '@mikro-orm/postgresql';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { RelationshipsRepository } from './relationships.repository';
 import { RelationshipsDTO } from 'src/commands/dtos/Relationships.dto';
-import { Relationships } from './data models/relationships.dataModel';
+import { Relationships } from './data models/relationships.entity';
 
 @Injectable()
 export class RelationshipsService {
   constructor(
-    @InjectRepository(RelationshipsRepository)
+    @InjectRepository(Relationships)
     private relationshipsRepository: RelationshipsRepository,
   ) {}
 

@@ -5,8 +5,8 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.dataModel';
-import { User } from 'src/user/data models/user.dataModel';
+import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.entity';
+import { User } from 'src/user/data models/user.entity';
 
 @Entity()
 export class Productivity {

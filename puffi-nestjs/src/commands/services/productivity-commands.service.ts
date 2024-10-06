@@ -4,8 +4,8 @@ import { ProductivityService } from 'src/lifestat/productivity/productivity.serv
 import { ProductivityDTO } from '../dtos/productivity.dto';
 import { LlmService } from 'src/llm/llm.service';
 import { EntityManager } from '@mikro-orm/postgresql';
-import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.dataModel';
 import { ProductivityJsonSchema } from 'src/llm/zod/productivityEvaluation.schema';
+import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.entity';
 
 // A command is basically a service that calls a lot of methods from other services.
 //They all are executed in a transactional way, so if one fails, the other will not be added.

@@ -2,13 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { UserDto } from './dtos/user.dto';
 import { EntityManager } from '@mikro-orm/postgresql';
-import { User } from './data models/user.dataModel';
+import { User } from './data models/user.entity';
 import { InjectRepository } from '@mikro-orm/nestjs';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(UserRepository)
+    @InjectRepository(User)
     private userRepository: UserRepository,
   ) {}
 

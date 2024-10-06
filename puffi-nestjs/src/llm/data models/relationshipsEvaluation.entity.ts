@@ -1,5 +1,5 @@
 import { Entity, PrimaryKey, Property, OneToOne } from '@mikro-orm/core';
-import { Relationships } from 'src/lifestat/relationships/data models/relationships.dataModel';
+import { Relationships } from 'src/lifestat/relationships/data models/relationships.entity';
 
 @Entity()
 export class RelationshipsEvaluation {

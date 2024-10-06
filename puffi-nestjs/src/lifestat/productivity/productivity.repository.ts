@@ -1,5 +1,5 @@
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
-import { Productivity } from './data models/productivity.dataModel';
+import { Productivity } from './data models/productivity.entity';
 import { ProductivityDTO } from 'src/commands/dtos/productivity.dto';
 
 export class ProductivityRepository extends EntityRepository<Productivity> {

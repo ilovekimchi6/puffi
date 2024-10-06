@@ -1,5 +1,5 @@
 import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Productivity } from 'src/lifestat/productivity/data models/productivity.dataModel';
+import { Productivity } from 'src/lifestat/productivity/data models/productivity.entity';
 
 @Entity()
 export class ProductivityEvaluation {

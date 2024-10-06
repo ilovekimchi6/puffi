@@ -3,12 +3,12 @@ import { Injectable } from '@nestjs/common';
 import { FinanceRepository } from './finance.repository';
 import { FinanceDTO } from 'src/commands/dtos/finance.dto';
 import { EntityManager } from '@mikro-orm/postgresql';
-import { Finance } from './data models/finance.dataModel';
+import { Finance } from './data models/finance.entity';
 
 @Injectable()
 export class FinanceService {
   constructor(
-    @InjectRepository(FinanceRepository)
+    @InjectRepository(Finance)
     private financeRepository: FinanceRepository,
   ) {}
 

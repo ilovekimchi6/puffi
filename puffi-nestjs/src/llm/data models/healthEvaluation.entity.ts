@@ -1,5 +1,5 @@
 import { Entity, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Health } from 'src/lifestat/health/data models/health.dataModel';
+import { Health } from 'src/lifestat/health/data models/health.entity';
 
 @Entity()
 export class HealthEvaluation {

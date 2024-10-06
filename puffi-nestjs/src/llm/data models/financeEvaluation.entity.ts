@@ -1,5 +1,5 @@
 import { Entity, PrimaryKey, Property, OneToOne } from '@mikro-orm/core';
-import { Finance } from 'src/lifestat/finance/data models/finance.dataModel'; // Assuming there's a Finance entity corresponding to FinanceDTO
+import { Finance } from 'src/lifestat/finance/data models/finance.entity';
 
 @Entity()
 export class FinanceEvaluation {

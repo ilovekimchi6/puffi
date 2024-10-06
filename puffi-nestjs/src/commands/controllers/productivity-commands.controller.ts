@@ -7,9 +7,9 @@ import {
 } from 'nestjs-jrpc';
 import { ProductivityCommandsService } from '../services/productivity-commands.service';
 import { ProductivityDTO } from '../dtos/productivity.dto';
-import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.dataModel';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/strategies/jwt.authguard';
+import { ProductivityEvaluation } from 'src/llm/data models/productivityEvaluation.entity';
 @RpcHandler({
   method: 'productivity',
 })

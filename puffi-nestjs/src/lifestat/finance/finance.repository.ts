@@ -1,5 +1,5 @@
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
-import { Finance } from './data models/finance.dataModel';
+import { Finance } from './data models/finance.entity';
 import { FinanceDTO } from 'src/commands/dtos/finance.dto';
 
 export class FinanceRepository extends EntityRepository<Finance> {

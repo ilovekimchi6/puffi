@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import Together from 'together-ai';
 import { EntityManager, QueryOrder } from '@mikro-orm/postgresql';
-import { ProductivityEvaluation } from './data models/productivityEvaluation.dataModel';
+import { ProductivityEvaluation } from './data models/productivityEvaluation.entity';
 
 @Injectable()
 export class LlmService {

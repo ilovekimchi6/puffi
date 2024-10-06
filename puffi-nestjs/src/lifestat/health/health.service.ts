@@ -2,13 +2,13 @@ import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 import { HealthRepository } from './health.repository';
 import { HealthDTO } from 'src/commands/dtos/health.dto';
-import { Health } from './data models/health.dataModel';
+import { Health } from './data models/health.entity';
 import { EntityManager } from '@mikro-orm/postgresql';
 
 @Injectable()
 export class HealthService {
   constructor(
-    @InjectRepository(HealthRepository)
+    @InjectRepository(Health)
     private healthRepository: HealthRepository,
   ) {}
 

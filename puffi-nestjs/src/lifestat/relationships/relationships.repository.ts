@@ -1,5 +1,5 @@
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
-import { Relationships } from './data models/relationships.dataModel';
+import { Relationships } from './data models/relationships.entity';
 import { RelationshipsDTO } from 'src/commands/dtos/relationships.dto';
 
 export class RelationshipsRepository extends EntityRepository<Relationships> {

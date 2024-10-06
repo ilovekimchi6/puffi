@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductivityRepository } from './productivity.repository';
-import { Productivity } from './data models/productivity.dataModel';
+import { Productivity } from './data models/productivity.entity';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { ProductivityDTO } from 'src/commands/dtos/productivity.dto';
@@ -12,7 +12,7 @@ import { ProductivityDTO } from 'src/commands/dtos/productivity.dto';
 @Injectable()
 export class ProductivityService {
   constructor(
-    @InjectRepository(ProductivityRepository)
+    @InjectRepository(Productivity)
     private productivityRepository: ProductivityRepository,
   ) {}
 

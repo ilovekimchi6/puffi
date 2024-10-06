@@ -1,6 +1,6 @@
 import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
 import { HealthDTO } from 'src/commands/dtos/health.dto';
-import { Health } from './data models/health.dataModel';
+import { Health } from './data models/health.entity';
 
 export class HealthRepository extends EntityRepository<Health> {
   async addHealth(healthDTO: HealthDTO, em?: EntityManager): Promise<void> {

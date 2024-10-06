@@ -5,8 +5,8 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { HealthEvaluation } from 'src/llm/data models/healthEvaluation.dataModel';
-import { User } from 'src/user/data models/user.dataModel';
+import { HealthEvaluation } from 'src/llm/data models/healthEvaluation.entity';
+import { User } from 'src/user/data models/user.entity';
 
 @Entity()
 export class Health {

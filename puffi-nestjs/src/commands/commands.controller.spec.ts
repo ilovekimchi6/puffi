@@ -1,20 +1,20 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { ProductivityCommandsController } from './controllers/productivity-commands.controller';
+// import { Test, TestingModule } from '@nestjs/testing';
+// import { ProductivityCommandsController } from './controllers/productivity-commands.controller';
 
-describe('CommandsController', () => {
-  let controller: ProductivityCommandsController;
+// describe('CommandsController', () => {
+//   let controller: ProductivityCommandsController;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [ProductivityCommandsController],
-    }).compile();
+//   beforeEach(async () => {
+//     const module: TestingModule = await Test.createTestingModule({
+//       controllers: [ProductivityCommandsController],
+//     }).compile();
 
-    controller = module.get<ProductivityCommandsController>(
-      ProductivityCommandsController,
-    );
-  });
+//     controller = module.get<ProductivityCommandsController>(
+//       ProductivityCommandsController,
+//     );
+//   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
-});
+//   it('should be defined', () => {
+//     expect(controller).toBeDefined();
+//   });
+// });

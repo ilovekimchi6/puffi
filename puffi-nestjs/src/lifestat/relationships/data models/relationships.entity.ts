@@ -5,8 +5,8 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { RelationshipsEvaluation } from 'src/llm/data models/relationshipsEvaluation.dataModel';
-import { User } from 'src/user/data models/user.dataModel';
+import { RelationshipsEvaluation } from 'src/llm/data models/relationshipsEvaluation.entity';
+import { User } from 'src/user/data models/user.entity';
 
 @Entity()
 export class Relationships {

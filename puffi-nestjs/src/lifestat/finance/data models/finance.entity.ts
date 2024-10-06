@@ -5,8 +5,8 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { FinanceEvaluation } from 'src/llm/data models/financeEvaluation.dataModel';
-import { User } from 'src/user/data models/user.dataModel';
+import { FinanceEvaluation } from 'src/llm/data models/financeEvaluation.entity';
+import { User } from 'src/user/data models/user.entity';
 
 @Entity()
 export class Finance {

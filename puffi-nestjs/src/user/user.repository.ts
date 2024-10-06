@@ -1,5 +1,5 @@
 import { EntityRepository } from '@mikro-orm/core';
-import { User } from './data models/user.dataModel';
+import { User } from './data models/user.entity';
 import { UserDto } from './dtos/user.dto';
 import { EntityManager } from '@mikro-orm/postgresql';
 
