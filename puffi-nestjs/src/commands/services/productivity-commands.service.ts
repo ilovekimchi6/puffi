@@ -47,7 +47,10 @@ export class ProductivityCommandsService {
           em,
         );
 
-        await this.llmService.addLLMEvaluation(em, getLLMEvaluation);
+        await this.llmService.addLLMProductivityEvaluation(
+          em,
+          getLLMEvaluation,
+        );
       });
     } catch (e) {
       console.log(e);

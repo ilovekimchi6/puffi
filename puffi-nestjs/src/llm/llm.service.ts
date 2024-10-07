@@ -2,6 +2,9 @@ import { Injectable } from '@nestjs/common';
 import Together from 'together-ai';
 import { EntityManager, QueryOrder } from '@mikro-orm/postgresql';
 import { ProductivityEvaluation } from './data models/productivityEvaluation.entity';
+import { FinanceEvaluation } from './data models/financeEvaluation.entity';
+import { HealthEvaluation } from './data models/healthEvaluation.entity';
+import { RelationshipsEvaluation } from './data models/relationshipsEvaluation.entity';
 
 @Injectable()
 export class LlmService {
@@ -43,7 +46,10 @@ export class LlmService {
   }
 
   // This function takes the output from the getLLMEvaluation function and adds it to the database.
-  async addLLMEvaluation(em: EntityManager, output: string): Promise<void> {
+  async addLLMProductivityEvaluation(
+    em: EntityManager,
+    output: string,
+  ): Promise<void> {
     const parsedOutput = JSON.parse(output);
 
     const {
@@ -66,6 +72,99 @@ export class LlmService {
       focusScore,
       overallProductivity,
       overallScore,
+      keyInsight,
+      actionableAdvice,
+    });
+  }
+
+  async addLLMFianceEvaluation(
+    em: EntityManager,
+    output: string,
+  ): Promise<void> {
+    const parsedOutput = JSON.parse(output);
+
+    const {
+      incomeAssessment,
+      savingsRate,
+      budgetAdherenceScore,
+      financialGoalClarity,
+      investmentStrategyQuality,
+      overallFinancialHealth,
+      overallScore,
+      keyInsight,
+      actionableAdvice,
+    } = parsedOutput;
+
+    em.create(FinanceEvaluation, {
+      incomeAssessment,
+      savingsRate,
+      budgetAdherenceScore,
+      financialGoalClarity,
+      investmentStrategyQuality,
+      overallFinancialHealth,
+      overallScore,
+      keyInsight,
+      actionableAdvice,
+    });
+  }
+
+  async addLLMHealthEvaluation(
+    em: EntityManager,
+    output: string,
+  ): Promise<void> {
+    const parsedOutput = JSON.parse(output);
+
+    const {
+      exerciseEffectiveness,
+      dietaryImpact,
+      sleepQuality,
+      mentalHealthScore,
+      goalAchievementRate,
+      overallHealthScore,
+      keyInsights,
+      actionableAdvice,
+    } = parsedOutput;
+
+    em.create(HealthEvaluation, {
+      exerciseEffectiveness,
+      dietaryImpact,
+      sleepQuality,
+      mentalHealthScore,
+      goalAchievementRate,
+      overallHealthScore,
+      keyInsights,
+      actionableAdvice,
+    });
+  }
+
+  async addLLMRelationshipsEvaluation(
+    em: EntityManager,
+    output: string,
+  ): Promise<void> {
+    const parsedOutput = JSON.parse(output);
+
+    const {
+      familyRelationshipsQuality,
+      friendshipsQuality,
+      romanticRelationshipsQuality,
+      overallSatisfactionScore,
+      relationshipGoalsClarity,
+      socialNetworkStrength,
+      emotionalSupportScore,
+      overallRelationshipHealth,
+      keyInsight,
+      actionableAdvice,
+    } = parsedOutput;
+
+    em.create(RelationshipsEvaluation, {
+      familyRelationshipsQuality,
+      friendshipsQuality,
+      romanticRelationshipsQuality,
+      overallSatisfactionScore,
+      relationshipGoalsClarity,
+      socialNetworkStrength,
+      emotionalSupportScore,
+      overallRelationshipHealth,
       keyInsight,
       actionableAdvice,
     });
